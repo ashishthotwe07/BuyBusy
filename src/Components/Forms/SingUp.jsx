@@ -19,10 +19,10 @@ const SignUpPage = () => {
     try {
       await signUp(email, password);
       console.log(currentUser);
-      toast.success("Sign up successful!"); // Show success notification
+      toast.success("Sign up successful!");
       navigate('/signin');
     } catch (error) {
-      toast.error(` Weak password`); // Show error notification
+      toast.error(` Weak password`); 
     }
   };
 

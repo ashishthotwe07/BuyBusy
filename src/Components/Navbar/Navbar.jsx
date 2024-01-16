@@ -3,16 +3,16 @@ import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../../Contexts/AuthContext"; // Import the useAuth hook
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Navbar() {
-  const { currentUser, signOut } = useAuth(); 
+  const { currentUser, signOutFunc } = useAuth(); 
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
     try {
-      await signOut();
+      await signOutFunc();
       navigate('/'); // Redirect to the home page or any other page after signout
       toast.success('Sign Out Successful');
     } catch (error) {
@@ -55,14 +55,14 @@ function Navbar() {
                   />
                   Cart
                 </NavLink>
-                <NavLink to={"/logout"} className="nav-link" onClick={handleSignOut}>
+                <button className="nav-link signoutbtn" onClick={handleSignOut}>
                   <img
                     src="https://cdn-icons-png.flaticon.com/128/4400/4400828.png"
                     alt="Logout Icon"
                     className="nav-icon"
                   />
                   Logout
-                </NavLink>
+                </button>
               </>
             ) : (
               // If user is not signed in, show these options
@@ -89,7 +89,6 @@ function Navbar() {
         </div>
       </div>
       <Outlet />
-      <ToastContainer />
     </>
   );
 }

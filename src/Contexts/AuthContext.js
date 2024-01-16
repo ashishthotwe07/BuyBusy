@@ -5,7 +5,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged,
+
 } from "firebase/auth";
 
 const AuthContext = createContext();
@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
       );
       setCurrentUser(userCredential.user);
     } catch (error) {
-      throw error; // Rethrow the error for handling in the SignUpPage component
+      throw error;
     }
   };
 
@@ -65,7 +65,6 @@ export function AuthProvider({ children }) {
     signUp,
     signIn,
     signOutFunc,
-    // Add other authentication functions to the value
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
