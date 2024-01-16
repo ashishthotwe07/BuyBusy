@@ -7,6 +7,7 @@ import CartPage from "./Components/Cart/CartPage";
 import SignIn from "./Components/Forms/SingIn";
 import SignUp from "./Components/Forms/SingUp";
 import { AuthProvider } from "./Contexts/AuthContext";
+import { CartProvider } from "./Contexts/CartContext";
 import './tostify.css'
 
 import { ToastContainer } from 'react-toastify';
@@ -29,8 +30,10 @@ export default function App() {
   return (
     <>
       <AuthProvider>
+        <CartProvider>
         <RouterProvider router={router} />
         <ToastContainer /> 
+        </CartProvider>
       </AuthProvider>
     </>
   );
