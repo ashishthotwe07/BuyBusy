@@ -1,15 +1,31 @@
 // SignUpPage.js
-import React, { useState } from 'react';
-import './Forms.css';
+import React, { useState } from "react";
+import "./Forms.css";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../../Contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'; // Import toast
 
 const SignUpPage = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { signUp, currentUser } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      await signUp(email, password);
+      console.log(currentUser);
+      toast.success("Sign up successful!"); // Show success notification
+      navigate('/signin');
+    } catch (error) {
+      toast.error(` Weak password`); // Show error notification
+    }
   };
+
 
   return (
     <div className="auth-container">
@@ -40,6 +56,11 @@ const SignUpPage = () => {
           required
         />
         <button type="submit">Sign Up</button>
+        <div>
+          <h5>
+            Already have an account? <NavLink to={"/signin"}>Sign In</NavLink>
+          </h5>
+        </div>
       </form>
     </div>
   );

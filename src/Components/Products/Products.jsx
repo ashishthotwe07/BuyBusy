@@ -10,8 +10,9 @@ export default function Products() {
     ...new Set(ProductData.map((product) => product.category)),
   ];
 
-  // State to keep track of selected categories
+  // State to keep track of selected categories and search input
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
   // Function to handle checkbox change
   const handleCheckboxChange = (category) => {
@@ -24,10 +25,20 @@ export default function Products() {
     }
   };
 
+  // Function to handle search input change
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   return (
     <>
       <div className="search">
-        <input type="text" placeholder="Search..." />
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchInput}
+          onChange={handleSearchInputChange}
+        />
       </div>
       <div className="products-container">
         <div className="filter-section">
@@ -35,10 +46,7 @@ export default function Products() {
           <label>
             {uniqueCategories.map((category) => (
               <div key={category} className="category">
-                <div>
-                  {category}
-                </div>
-                
+                <div>{category}</div>
                 <input
                   type="checkbox"
                   value={category}
@@ -51,12 +59,13 @@ export default function Products() {
         </div>
         <div className="products-list">
           {ProductData.filter(
-            (product) =>
-              // Filter products based on selected categories
-              selectedCategories.length === 0 ||
-              selectedCategories.includes(product.category)
+            (product ) =>
+              // Filter products based on selected categories and search input
+              (selectedCategories.length === 0 ||
+                selectedCategories.includes(product.category)) &&
+              product.name.toLowerCase().includes(searchInput.toLowerCase())
           ).map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard  key={product.id} product={product} />
           ))}
         </div>
       </div>

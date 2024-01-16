@@ -6,6 +6,11 @@ import OrderPage from "./Components/Orders/OrderPage";
 import CartPage from "./Components/Cart/CartPage";
 import SignIn from "./Components/Forms/SingIn";
 import SignUp from "./Components/Forms/SingUp";
+import { AuthProvider } from "./Contexts/AuthContext";
+import './tostify.css'
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
   const router = createBrowserRouter([
@@ -23,7 +28,10 @@ export default function App() {
   ]);
   return (
     <>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+        <ToastContainer /> 
+      </AuthProvider>
     </>
   );
 }
