@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Buy Busy E-Commerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Buy Busy is a basic e-commerce website developed using React, Firebase, React Router, and Context API. It allows users to browse products, add items to the cart, make purchases, and view order history.
 
-## Available Scripts
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
 
-In the project directory, you can run:
+## Features
+1. **Product Page:**
+   - Displays a list of all available products.
+   - Allows filtering by category.
+   - Includes a search functionality for finding specific items.
 
-### `npm start`
+2. **Cart Page:**
+   - Displays the items added to the cart.
+   - Allows users to adjust quantities and remove items.
+   - Provides a button to proceed to checkout.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **Checkout:**
+   - Users can purchase items from the cart.
+   - Implements CRUD operations for managing the cart using Firebase.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. **Orders Page:**
+   - Displays the order history for the logged-in user.
 
-### `npm test`
+5. **User Authentication:**
+   - Allows users to register and sign in.
+   - User-specific data using Firebase authentication.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. **User Profile:**
+   - Displays user-specific information.
+   - Provides a sign-out functionality.
 
-### `npm run build`
+7. **Notifications:**
+   - Displays Notifications properly.
+  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
+- React
+- Firebase (Firestore for database)
+- React Router
+- Context API for state management
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
+- `src/components`: Contains React components.
+- `src/contexts`: Defines the context providers.
+- `src/firebase.js`: Firebase configuration.
+- `src/App.js`: Main application component.
+- `src/index.js`: Entry point for the application.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Set up a Firebase project and update the Firebase configuration in `src/firebase/firebase.js`.
+4. Run the app using `npm start`.
 
-### `npm run eject`
+## Usage
+1. Visit the product page to explore available items.
+2. Add items to the cart and proceed to the cart page.
+3. Make a purchase by clicking the checkout button.
+4. View order history on the orders page.
+5. Register or sign in to access user-specific features.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Screenshots
+![Product Page](/screenshots/product-page.png)
+![Cart Page](/screenshots/cart-page.png)
+![Orders Page](/screenshots/orders-page.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
+Contributions are welcome! Feel free to open issues or pull requests.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the [MIT License](LICENSE).

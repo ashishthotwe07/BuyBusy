@@ -2,11 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   width: 80%;
+  margin-left: 400px;
 }
 .products-container {
+ 
   display: flex;
 }
 .filter-section {
+  position: fixed;
   width: 20%;
   background-color: aliceblue;
 }
@@ -23,17 +26,15 @@
 
 /* Products.css */
 
-
-
-.filter-section h3{
-    color: rgb(30, 25, 25);
+.filter-section h3 {
+  color: rgb(30, 25, 25);
 }
-.filter-section .category{
-    font-size: 17px;
-display: flex;
-align-items: center;
+.filter-section .category {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
 }
 
-.filter-section .category div{
-    width: 130px;
+.filter-section .category div {
+  width: 130px;
 }

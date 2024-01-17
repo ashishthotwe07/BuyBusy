@@ -1,14 +1,18 @@
-// ErrorPage.js
+// Importing necessary dependencies and styles
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ErrorPage.css'; // Create a separate CSS file for styling
+import './ErrorPage.css'; 
 
+// ErrorPage component to display a 404 error and redirect to the homepage
 const ErrorPage = () => {
+  // Hook to navigate between pages
   const navigate = useNavigate();
 
+  // Effect to redirect to the homepage after a delay (e.g., 3 seconds)
   useEffect(() => {
-    // Redirect to the homepage after a delay (e.g., 3 seconds)
+    // Set up a timer for the redirection
     const redirectTimer = setTimeout(() => {
+      // Redirect to the homepage
       navigate('/');
     }, 3000);
 
@@ -16,6 +20,7 @@ const ErrorPage = () => {
     return () => clearTimeout(redirectTimer);
   }, [navigate]);
 
+  // Rendering the ErrorPage component
   return (
     <div className="error-container">
       <div className="error-content">
@@ -27,4 +32,5 @@ const ErrorPage = () => {
   );
 };
 
+// Exporting the ErrorPage component
 export default ErrorPage;
