@@ -39,7 +39,7 @@ function Navbar() {
                   />
                   Home
                 </NavLink>
-                <NavLink to={"/users/:uid/orders"} className="nav-link">
+                <NavLink to={`/users/${currentUser.uid}/orders`} className="nav-link">
                   <img
                     src="https://cdn-icons-png.flaticon.com/128/6815/6815043.png"
                     alt="Orders Icon"
@@ -47,7 +47,7 @@ function Navbar() {
                   />
                   Orders
                 </NavLink>
-                <NavLink to={"/users/:uid/myCart"} className="nav-link">
+                <NavLink to={`/users/${currentUser.uid}/myCart`} className="nav-link">
                   <img
                     src="https://cdn-icons-png.flaticon.com/128/6815/6815043.png"
                     alt="Cart Icon"

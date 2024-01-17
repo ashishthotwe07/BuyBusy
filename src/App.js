@@ -8,6 +8,7 @@ import SignIn from "./Components/Forms/SingIn";
 import SignUp from "./Components/Forms/SingUp";
 import { AuthProvider } from "./Contexts/AuthContext";
 import { CartProvider } from "./Contexts/CartContext";
+import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import './tostify.css'
 
 import { ToastContainer } from 'react-toastify';
@@ -18,6 +19,7 @@ export default function App() {
     {
       path: "/",
       element: <Navbar />,
+      errorElement:<ErrorPage />,
       children: [
         { index: true, element: <Products /> },
         { path: "signin", element: <SignIn /> },
