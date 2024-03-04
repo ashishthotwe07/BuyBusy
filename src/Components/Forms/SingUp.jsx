@@ -4,7 +4,7 @@ import "./Forms.css";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../Contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify'; // Import toast
+import { toast } from "react-toastify"; // Import toast
 
 const SignUpPage = () => {
   const [username, setUsername] = useState("");
@@ -20,12 +20,12 @@ const SignUpPage = () => {
       await signUp(email, password);
       console.log(currentUser);
       toast.success("Sign up successful!");
-      navigate('/signin');
+      navigate("/signin");
     } catch (error) {
-      toast.error(` Weak password`); 
+      console.log(error);
+      toast.error(error.code);
     }
   };
-
 
   return (
     <div className="auth-container">
