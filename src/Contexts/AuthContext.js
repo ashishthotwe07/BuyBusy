@@ -23,7 +23,11 @@ export function AuthProvider({ children }) {
   // Function to handle user registration
   const signUp = async (email, password) => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       setCurrentUser(userCredential.user);
     } catch (error) {
       throw error; // Propagate the error for handling in the SignUp component
@@ -33,7 +37,11 @@ export function AuthProvider({ children }) {
   // Function to handle user login
   const signIn = async (email, password) => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       setCurrentUser(userCredential.user);
     } catch (error) {
       throw error; // Propagate the error for handling in the SignIn component
